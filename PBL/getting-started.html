@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started - MindTrack</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="getting-started.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>MindTrack</h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="mood-tracker.html">Mood Tracker</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li class="profile-dropdown"><a href="profile.html">Profile</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                    <li><a href="#" id="logout-btn">Logout</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="getting-started">
+        <div class="container">
+            <div class="getting-started-header">
+                <h1>Welcome to MindTrack!</h1>
+                <p>Let's set up your account and get you started on your mental wellness journey.</p>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress" id="setup-progress"></div>
+                </div>
+                <div class="progress-steps">
+                    <div class="progress-step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Profile</div>
+                    </div>
+                    <div class="progress-step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Preferences</div>
+                    </div>
+                    <div class="progress-step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Goals</div>
+                    </div>
+                    <div class="progress-step" data-step="4">
+                        <div class="step-number">4</div>
+                        <div class="step-label">Complete</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="setup-container">
+                <!-- Step 1: Profile Setup -->
+                <div class="setup-step active" id="step-1">
+                    <div class="setup-card">
+                        <div class="setup-card-header">
+                            <h2>Complete Your Profile</h2>
+                            <p>Tell us a bit about yourself so we can personalize your experience.</p>
+                        </div>
+                        <div class="setup-card-content">
+                            <form id="profile-setup-form">
+                                <div class="form-group">
+                                    <label for="setup-name">Full Name</label>
+                                    <input type="text" id="setup-name" name="name" placeholder="Your full name" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="setup-dob">Date of Birth</label>
+                                        <input type="date" id="setup-dob" name="dob" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="setup-gender">Gender</label>
+                                        <select id="setup-gender" name="gender">
+                                            <option value="">Select gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="non-binary">Non-binary</option>
+                                            <option value="other">Other</option>
+                                            <option value="prefer-not">Prefer not to say</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="setup-location">Location</label>
+                                    <input type="text" id="setup-location" name="location" placeholder="City, Country">
+                                </div>
+                                <div class="form-group">
+                                    <label for="setup-about">About You</label>
+                                    <textarea id="setup-about" name="about" rows="3" placeholder="Tell us a bit about yourself and your mental health goals..."></textarea>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-primary next-step" data-next="2">Continue</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Preferences Setup -->
+                <div class="setup-step" id="step-2">
+                    <div class="setup-card">
+                        <div class="setup-card-header">
+                            <h2>Your Preferences</h2>
+                            <p>Customize your experience and set your preferences.</p>
+                        </div>
+                        <div class="setup-card-content">
+                            <form id="preferences-setup-form">
+                                <div class="form-group">
+                                    <label>What are your wellness interests?</label>
+                                    <div class="interests-grid">
+                                        <div class="interest-option">
+                                            <input type="checkbox" id="interest-meditation" name="interests[]" value="Meditation">
+                                            <label for="interest-meditation">
+                                                <i class="fas fa-om"></i>
+                                                <span>Meditation</span>
+                                            </label>
+                                        </div>
+                                        <div class="interest-option">
+                                            <input type="checkbox" id="interest-mindfulness" name="interests[]" value="Mindfulness">
+                                            <label for="interest-mindfulness">
+                                                <i class="fas fa-brain"></i>
+                                                <span>Mindfulness</span>
+                                            </label>
+                                        </div>
+                                        <div class="interest-option">
+                                            <input type="checkbox" id="interest-yoga" name="interests[]" value="Yoga">
+                                            <label for="interest-yoga">
+                                                <i class="fas fa-pray"></i>
+                                                <span>Yoga</span>
+                                            </label>
+                                        </div>
+                                        <div class="interest-option">
+                                            <input type="checkbox" id="interest-journaling" name="interests[]" value="Journaling">
+                                            <label for="interest-journaling">
+                                                <i class="fas fa-book"></i>
+                                                <span>Journaling</span>
+                                            </label>
+                                        </div>
+                                        <div class="interest-option">
+                                            <input type="checkbox" id="interest-exercise" name="interests[]" value="Exercise">
+                                            <label for="interest-exercise">
+                                                <i class="fas fa-running"></i>
+                                                <span>Exercise</span>
+                                            </label>
+                                        </div>
+                                        <div class="interest-option">
+                                            <input type="checkbox" id="interest-nutrition" name="interests[]" value="Nutrition">
+                                            <label for="interest-nutrition">
+                                                <i class="fas fa-apple-alt"></i>
+                                                <span>Nutrition</span>
+                                            </label>
+                                        </div>
+                                        <div class="interest-option">
+                                            <input type="checkbox" id="interest-sleep" name="interests[]" value="Sleep">
+                                            <label for="interest-sleep">
+                                                <i class="fas fa-moon"></i>
+                                                <span>Sleep</span>
+                                            </label>
+                                        </div>
+                                        <div class="interest-option">
+                                            <input type="checkbox" id="interest-stress" name="interests[]" value="Stress Management">
+                                            <label for="interest-stress">
+                                                <i class="fas fa-wind"></i>
+                                                <span>Stress Management</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Would you like to receive reminders?</label>
+                                    <div class="reminder-options">
+                                        <div class="reminder-option">
+                                            <input type="checkbox" id="reminder-daily" name="reminders[]" value="daily-checkin" checked>
+                                            <label for="reminder-daily">Daily mood check-in</label>
+                                        </div>
+                                        <div class="reminder-option">
+                                            <input type="checkbox" id="reminder-journal" name="reminders[]" value="journal">
+                                            <label for="reminder-journal">Journal reminders</label>
+                                        </div>
+                                        <div class="reminder-option">
+                                            <input type="checkbox" id="reminder-weekly" name="reminders[]" value="weekly-report" checked>
+                                            <label for="reminder-weekly">Weekly progress report</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="reminder-time">What time would you like to receive reminders?</label>
+                                    <input type="time" id="reminder-time" name="reminder-time" value="08:00">
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-secondary prev-step" data-prev="1">Back</button>
+                                    <button type="button" class="btn btn-primary next-step" data-next="3">Continue</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Goals Setup -->
+                <div class="setup-step" id="step-3">
+                    <div class="setup-card">
+                        <div class="setup-card-header">
+                            <h2>Set Your Goals</h2>
+                            <p>Define what you want to achieve on your mental wellness journey.</p>
+                        </div>
+                        <div class="setup-card-content">
+                            <form id="goals-setup-form">
+                                <div class="form-group">
+                                    <label>What are your primary mental wellness goals?</label>
+                                    <div class="goals-grid">
+                                        <div class="goal-option">
+                                            <input type="checkbox" id="goal-stress" name="goals[]" value="Reduce Stress">
+                                            <label for="goal-stress">
+                                                <i class="fas fa-wind"></i>
+                                                <span>Reduce Stress</span>
+                                            </label>
+                                        </div>
+                                        <div class="goal-option">
+                                            <input type="checkbox" id="goal-anxiety" name="goals[]" value="Manage Anxiety">
+                                            <label for="goal-anxiety">
+                                                <i class="fas fa-heartbeat"></i>
+                                                <span>Manage Anxiety</span>
+                                            </label>
+                                        </div>
+                                        <div class="goal-option">
+                                            <input type="checkbox" id="goal-sleep" name="goals[]" value="Improve Sleep">
+                                            <label for="goal-sleep">
+                                                <i class="fas fa-bed"></i>
+                                                <span>Improve Sleep</span>
+                                            </label>
+                                        </div>
+                                        <div class="goal-option">
+                                            <input type="checkbox" id="goal-mindfulness" name="goals[]" value="Practice Mindfulness">
+                                            <label for="goal-mindfulness">
+                                                <i class="fas fa-brain"></i>
+                                                <span>Practice Mindfulness</span>
+                                            </label>
+                                        </div>
+                                        <div class="goal-option">
+                                            <input type="checkbox" id="goal-mood" name="goals[]" value="Improve Mood">
+                                            <label for="goal-mood">
+                                                <i class="fas fa-smile"></i>
+                                                <span>Improve Mood</span>
+                                            </label>
+                                        </div>
+                                        <div class="goal-option">
+                                            <input type="checkbox" id="goal-selfcare" name="goals[]" value="Self-Care Routine">
+                                            <label for="goal-selfcare">
+                                                <i class="fas fa-heart"></i>
+                                                <span>Self-Care Routine</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="custom-goal">Add a custom goal (optional)</label>
+                                    <input type="text" id="custom-goal" name="custom-goal" placeholder="e.g., Meditate for 10 minutes daily">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="goal-timeframe">What's your timeframe for achieving these goals?</label>
+                                    <select id="goal-timeframe" name="goal-timeframe">
+                                        <option value="1-month">1 month</option>
+                                        <option value="3-months" selected>3 months</option>
+                                        <option value="6-months">6 months</option>
+                                        <option value="1-year">1 year</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="goal-motivation">What motivates you to achieve these goals?</label>
+                                    <textarea id="goal-motivation" name="goal-motivation" rows="3" placeholder="Share what's driving you to improve your mental wellbeing..."></textarea>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-secondary prev-step" data-prev="2">Back</button>
+                                    <button type="button" class="btn btn-primary next-step" data-next="4">Continue</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Completion -->
+                <div class="setup-step" id="step-4">
+                    <div class="setup-card">
+                        <div class="setup-card-header">
+                            <h2>You're All Set!</h2>
+                            <p>Your account has been successfully set up.</p>
+                        </div>
+                        <div class="setup-card-content">
+                            <div class="completion-message">
+                                <div class="completion-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h3>Welcome to MindTrack!</h3>
+                                <p>Thank you for taking the time to set up your account. We're excited to be part of your mental wellness journey.</p>
+                                
+                                <div class="next-steps">
+                                    <h4>Here are some next steps you can take:</h4>
+                                    <ul>
+                                        <li><i class="fas fa-chart-line"></i> <span>Track your first mood on the dashboard</span></li>
+                                        <li><i class="fas fa-book"></i> <span>Write your first journal entry</span></li>
+                                        <li><i class="fas fa-lightbulb"></i> <span>Explore resources tailored to your interests</span></li>
+                                        <li><i class="fas fa-user-friends"></i> <span>Connect with the community</span></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <a href="index.html" class="btn btn-primary">Go to Home</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>MindTrack</h2>
+                    <p>Your mental health companion</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="mood-tracker.html">Mood Tracker</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for mental health tips and updates.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 MindTrack. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="getting-started.js"></script>
+</body>
+</html>
+

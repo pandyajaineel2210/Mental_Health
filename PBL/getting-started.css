@@ -1,0 +1,366 @@
+/* Getting Started Page Styles */
+.getting-started {
+  padding: 3rem 0;
+  background-color: var(--bg-light);
+}
+
+.getting-started-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.getting-started-header h1 {
+  margin-bottom: 1rem;
+}
+
+.getting-started-header p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--text-light);
+}
+
+/* Progress Bar */
+.progress-container {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: var(--border-color);
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 25%;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--border-color);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.step-label {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.progress-step.active .step-number,
+.progress-step.completed .step-number {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.progress-step.active .step-label,
+.progress-step.completed .step-label {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Setup Container */
+.setup-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.setup-step {
+  display: none;
+}
+
+.setup-step.active {
+  display: block;
+}
+
+.setup-card {
+  background-color: var(--bg-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.setup-card-header {
+  padding: 2rem 2rem 1rem;
+}
+
+.setup-card-header h2 {
+  margin-bottom: 0.5rem;
+}
+
+.setup-card-header p {
+  color: var(--text-light);
+}
+
+.setup-card-content {
+  padding: 1rem 2rem 2rem;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Interests Grid */
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.interest-option {
+  position: relative;
+}
+
+.interest-option input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.interest-option label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.interest-option label i {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-light);
+  transition: var(--transition);
+}
+
+.interest-option input:checked + label {
+  border-color: var(--primary-color);
+  background-color: rgba(74, 144, 226, 0.1);
+}
+
+.interest-option input:checked + label i {
+  color: var(--primary-color);
+}
+
+.interest-option input:focus + label {
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+/* Reminder Options */
+.reminder-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.reminder-option {
+  display: flex;
+  align-items: center;
+}
+
+.reminder-option input {
+  margin-right: 0.5rem;
+}
+
+/* Goals Grid */
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.goal-option {
+  position: relative;
+}
+
+.goal-option input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.goal-option label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.goal-option label i {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-light);
+  transition: var(--transition);
+}
+
+.goal-option input:checked + label {
+  border-color: var(--primary-color);
+  background-color: rgba(74, 144, 226, 0.1);
+}
+
+.goal-option input:checked + label i {
+  color: var(--primary-color);
+}
+
+.goal-option input:focus + label {
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+/* Completion Step */
+.completion-message {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.completion-icon {
+  font-size: 5rem;
+  color: var(--success-color);
+  margin-bottom: 1.5rem;
+}
+
+.completion-message h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.completion-message p {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: var(--text-light);
+}
+
+.next-steps {
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto 2rem;
+}
+
+.next-steps h4 {
+  margin-bottom: 1rem;
+}
+
+.next-steps ul {
+  list-style: none;
+}
+
+.next-steps li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.next-steps li i {
+  width: 24px;
+  height: 24px;
+  background-color: rgba(74, 144, 226, 0.1);
+  color: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  .progress-step .step-label {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .interests-grid,
+  .goals-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reminder-options {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-step .step-label {
+    display: none;
+  }
+}
+

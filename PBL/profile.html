@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - MindTrack</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>MindTrack</h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="mood-tracker.html">Mood Tracker</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li class="profile-menu">
+                        <a href="profile.html" class="active">
+                            <div class="avatar">
+                                <span id="avatar-initials">JD</span>
+                            </div>
+                        </a>
+                        <div class="profile-dropdown">
+                            <a href="profile.html">Profile</a>
+                            <a href="settings.html">Settings</a>
+                            <a href="#" id="logout-btn">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="profile-section">
+        <div class="container">
+            <div class="profile-header">
+                <div class="profile-cover">
+                    <button class="edit-cover-btn">
+                        <i class="fas fa-camera"></i>
+                        <span>Change Cover</span>
+                    </button>
+                </div>
+                <div class="profile-info">
+                    <div class="profile-avatar">
+                        <div class="avatar avatar-large">
+                            <span id="profile-avatar-initials">JD</span>
+                        </div>
+                        <button class="edit-avatar-btn">
+                            <i class="fas fa-camera"></i>
+                        </button>
+                    </div>
+                    <div class="profile-details">
+                        <h1 id="profile-name">John Doe</h1>
+                        <p id="profile-email">john.doe@example.com</p>
+                        <p class="profile-since">Member since <span id="profile-date">January 2023</span></p>
+                    </div>
+                    <div class="profile-actions">
+                        <button class="btn btn-primary" id="edit-profile-btn">
+                            <i class="fas fa-edit"></i>
+                            Edit Profile
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-content">
+                <div class="profile-sidebar">
+                    <div class="profile-nav">
+                        <a href="#overview" class="profile-nav-item active" data-tab="overview">
+                            <i class="fas fa-user"></i>
+                            Overview
+                        </a>
+                        <a href="#activity" class="profile-nav-item" data-tab="activity">
+                            <i class="fas fa-chart-line"></i>
+                            Activity
+                        </a>
+                        <a href="#goals" class="profile-nav-item" data-tab="goals">
+                            <i class="fas fa-bullseye"></i>
+                            Goals
+                        </a>
+                        <a href="#preferences" class="profile-nav-item" data-tab="preferences">
+                            <i class="fas fa-cog"></i>
+                            Preferences
+                        </a>
+                    </div>
+
+                    <div class="profile-stats">
+                        <h3>Your Stats</h3>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="check-ins-count">28</span>
+                                <span class="stat-label">Check-ins</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="journal-count">12</span>
+                                <span class="stat-label">Journal Entries</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="streak-count">7</span>
+                                <span class="stat-label">Day Streak</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-main">
+                    <div class="profile-tab active" id="overview">
+                        <div class="profile-section-header">
+                            <h2>Profile Overview</h2>
+                        </div>
+
+                        <div class="profile-card">
+                            <div class="profile-card-header">
+                                <h3>Personal Information</h3>
+                                <button class="btn-icon edit-section-btn" data-section="personal">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                            <div class="profile-card-content" id="personal-info-view">
+                                <div class="info-group">
+                                    <label>Full Name</label>
+                                    <p id="display-name">John Doe</p>
+                                </div>
+                                <div class="info-group">
+                                    <label>Email</label>
+                                    <p id="display-email">john.doe@example.com</p>
+                                </div>
+                                <div class="info-group">
+                                    <label>Date of Birth</label>
+                                    <p id="display-dob">January 15, 1990</p>
+                                </div>
+                                <div class="info-group">
+                                    <label>Location</label>
+                                    <p id="display-location">New York, USA</p>
+                                </div>
+                            </div>
+                            <div class="profile-card-content hidden" id="personal-info-edit">
+                                <form id="personal-info-form">
+                                    <div class="form-group">
+                                        <label for="edit-name">Full Name</label>
+                                        <input type="text" id="edit-name" name="name" value="John Doe">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="edit-email">Email</label>
+                                        <input type="email" id="edit-email" name="email" value="john.doe@example.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="edit-dob">Date of Birth</label>
+                                        <input type="date" id="edit-dob" name="dob" value="1990-01-15">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="edit-location">Location</label>
+                                        <input type="text" id="edit-location" name="location" value="New York, USA">
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="button" class="btn btn-secondary cancel-edit" data-section="personal">Cancel</button>
+                                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="profile-card">
+                            <div class="profile-card-header">
+                                <h3>About Me</h3>
+                                <button class="btn-icon edit-section-btn" data-section="about">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                            <div class="profile-card-content" id="about-view">
+                                <p id="display-about">I'm on a journey to improve my mental wellbeing and track my moods. I enjoy meditation, hiking, and reading self-improvement books.</p>
+                            </div>
+                            <div class="profile-card-content hidden" id="about-edit">
+                                <form id="about-form">
+                                    <div class="form-group">
+                                        <label for="edit-about">About Me</label>
+                                        <textarea id="edit-about" name="about" rows="4">I'm on a journey to improve my mental wellbeing and track my moods. I enjoy meditation, hiking, and reading self-improvement books.</textarea>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="button" class="btn btn-secondary cancel-edit" data-section="about">Cancel</button>
+                                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="profile-card">
+                            <div class="profile-card-header">
+                                <h3>Wellness Interests</h3>
+                                <button class="btn-icon edit-section-btn" data-section="interests">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                            <div class="profile-card-content" id="interests-view">
+                                <div class="interests-tags">
+                                    <span class="interest-tag">Meditation</span>
+                                    <span class="interest-tag">Mindfulness</span>
+                                    <span class="interest-tag">Yoga</span>
+                                    <span class="interest-tag">Journaling</span>
+                                    <span class="interest-tag">Stress Management</span>
+                                </div>
+                            </div>
+                            <div class="profile-card-content hidden" id="interests-edit">
+                                <form id="interests-form">
+                                    <div class="form-group">
+                                        <label for="edit-interests">Select Your Interests</label>
+                                        <div class="interests-checkboxes">
+                                            <div class="interest-checkbox">
+                                                <input type="checkbox" id="interest-meditation" name="interests[]" value="Meditation" checked>
+                                                <label for="interest-meditation">Meditation</label>
+                                            </div>
+                                            <div class="interest-checkbox">
+                                                <input type="checkbox" id="interest-mindfulness" name="interests[]" value="Mindfulness" checked>
+                                                <label for="interest-mindfulness">Mindfulness</label>
+                                            </div>
+                                            <div class="interest-checkbox">
+                                                <input type="checkbox" id="interest-yoga" name="interests[]" value="Yoga" checked>
+                                                <label for="interest-yoga">Yoga</label>
+                                            </div>
+                                            <div class="interest-checkbox">
+                                                <input type="checkbox" id="interest-journaling" name="interests[]" value="Journaling" checked>
+                                                <label for="interest-journaling">Journaling</label>
+                                            </div>
+                                            <div class="interest-checkbox">
+                                                <input type="checkbox" id="interest-stress" name="interests[]" value="Stress Management" checked>
+                                                <label for="interest-stress">Stress Management</label>
+                                            </div>
+                                            <div class="interest-checkbox">
+                                                <input type="checkbox" id="interest-exercise" name="interests[]" value="Exercise">
+                                                <label for="interest-exercise">Exercise</label>
+                                            </div>
+                                            <div class="interest-checkbox">
+                                                <input type="checkbox" id="interest-nutrition" name="interests[]" value="Nutrition">
+                                                <label for="interest-nutrition">Nutrition</label>
+                                            </div>
+                                            <div class="interest-checkbox">
+                                                <input type="checkbox" id="interest-sleep" name="interests[]" value="Sleep Hygiene">
+                                                <label for="interest-sleep">Sleep Hygiene</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="button" class="btn btn-secondary cancel-edit" data-section="interests">Cancel</button>
+                                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-tab" id="activity">
+                        <div class="profile-section-header">
+                            <h2>Activity History</h2>
+                        </div>
+
+                        <div class="profile-card">
+                            <div class="profile-card-header">
+                                <h3>Recent Mood Trends</h3>
+                            </div>
+                            <div class="profile-card-content">
+                                <div class="chart-container">
+                                    <canvas id="moodTrendsChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-card">
+                            <div class="profile-card-header">
+                                <h3>Recent Activity</h3>
+                            </div>
+                            <div class="profile-card-content">
+                                <div class="activity-timeline">
+                                    <div class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-smile"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <p class="activity-text">You logged a <strong>Good</strong> mood</p>
+                                            <p class="activity-time">Today, 9:30 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-book"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <p class="activity-text">You wrote a journal entry: <strong>Morning Reflection</strong></p>
+                                            <p class="activity-time">Today, 9:35 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-medal"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <p class="activity-text">You achieved a <strong>7-day streak</strong>!</p>
+                                            <p class="activity-time">Today, 9:35 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-meh"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <p class="activity-text">You logged a <strong>Neutral</strong> mood</p>
+                                            <p class="activity-time">Yesterday, 8:45 AM</p>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-book"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <p class="activity-text">You wrote a journal entry: <strong>Work Stress</strong></p>
+                                            <p class="activity-time">Yesterday, 8:50 AM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-tab" id="goals">
+                        <div class="profile-section-header">
+                            <h2>Wellness Goals</h2>
+                            <button class="btn btn-primary" id="add-goal-btn">
+                                <i class="fas fa-plus"></i>
+                                Add Goal
+                            </button>
+                        </div>
+
+                        <div class="goals-container" id="goals-list">
+                            <div class="goal-card">
+                                <div class="goal-header">
+                                    <h3>Daily Meditation</h3>
+                                    <div class="goal-actions">
+                                        <button class="btn-icon edit-goal-btn">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-icon delete-goal-btn">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="goal-content">
+                                    <p>Practice mindfulness meditation for at least 10 minutes every day.</p>
+                                    <div class="goal-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 70%"></div>
+                                        </div>
+                                        <span class="progress-text">70% Complete</span>
+                                    </div>
+                                    <div class="goal-meta">
+                                        <span class="goal-date"><i class="fas fa-calendar"></i> Started: May 1, 2023</span>
+                                        <span class="goal-target"><i class="fas fa-bullseye"></i> Target: Daily</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="goal-card">
+                                <div class="goal-header">
+                                    <h3>Journal Regularly</h3>
+                                    <div class="goal-actions">
+                                        <button class="btn-icon edit-goal-btn">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-icon delete-goal-btn">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="goal-content">
+                                    <p>Write in my journal at least 3 times per week to process thoughts and emotions.</p>
+                                    <div class="goal-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 85%"></div>
+                                        </div>
+                                        <span class="progress-text">85% Complete</span>
+                                    </div>
+                                    <div class="goal-meta">
+                                        <span class="goal-date"><i class="fas fa-calendar"></i> Started: April 15, 2023</span>
+                                        <span class="goal-target"><i class="fas fa-bullseye"></i> Target: 3x Weekly</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="goal-card">
+                                <div class="goal-header">
+                                    <h3>Improve Sleep Quality</h3>
+                                    <div class="goal-actions">
+                                        <button class="btn-icon edit-goal-btn">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-icon delete-goal-btn">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="goal-content">
+                                    <p>Establish a consistent sleep schedule and get 7-8 hours of quality sleep each night.</p>
+                                    <div class="goal-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 40%"></div>
+                                        </div>
+                                        <span class="progress-text">40% Complete</span>
+                                    </div>
+                                    <div class="goal-meta">
+                                        <span class="goal-date"><i class="fas fa-calendar"></i> Started: May 10, 2023</span>
+                                        <span class="goal-target"><i class="fas fa-bullseye"></i> Target: Daily</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="add-goal-form hidden" id="add-goal-form">
+                            <div class="profile-card">
+                                <div class="profile-card-header">
+                                    <h3>Add New Goal</h3>
+                                </div>
+                                <div class="profile-card-content">
+                                    <form id="goal-form">
+                                        <div class="form-group">
+                                            <label for="goal-title">Goal Title</label>
+                                            <input type="text" id="goal-title" name="goal-title" placeholder="e.g., Daily Meditation" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="goal-description">Description</label>
+                                            <textarea id="goal-description" name="goal-description" rows="3" placeholder="Describe your goal..." required></textarea>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="goal-start-date">Start Date</label>
+                                                <input type="date" id="goal-start-date" name="goal-start-date" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="goal-target">Target Frequency</label>
+                                                <select id="goal-target" name="goal-target" required>
+                                                    <option value="daily">Daily</option>
+                                                    <option value="weekly">Weekly</option>
+                                                    <option value="monthly">Monthly</option>
+                                                    <option value="custom">Custom</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions">
+                                            <button type="button" class="btn btn-secondary" id="cancel-goal-btn">Cancel</button>
+                                            <button type="submit" class="btn btn-primary">Save Goal</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-tab" id="preferences">
+                        <div class="profile-section-header">
+                            <h2>App Preferences</h2>
+                        </div>
+
+                        <div class="profile-card">
+                            <div class="profile-card-header">
+                                <h3>Notifications</h3>
+                            </div>
+                            <div class="profile-card-content">
+                                <form id="notifications-form">
+                                    <div class="preference-item">
+                                        <div class="preference-info">
+                                            <h4>Daily Check-in Reminder</h4>
+                                            <p>Receive a reminder to log your mood each day</p>
+                                        </div>
+                                        <div class="preference-control">
+                                            <label class="switch">
+                                                <input type="checkbox" id="daily-reminder" checked>
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="preference-item">
+                                        <div class="preference-info">
+                                            <h4>Journal Reminders</h4>
+                                            <p>Receive reminders to write in your journal</p>
+                                        </div>
+                                        <div class="preference-control">
+                                            <label class="switch">
+                                                <input type="checkbox" id="journal-reminder" checked>
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="preference-item">
+                                        <div class="preference-info">
+                                            <h4>Weekly Progress Report</h4>
+                                            <p>Receive a weekly summary of your mood and progress</p>
+                                        </div>
+                                        <div class="preference-control">
+                                            <label class="switch">
+                                                <input type="checkbox" id="weekly-report" checked>
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="preference-item">
+                                        <div class="preference-info">
+                                            <h4>Email Notifications</h4>
+                                            <p>Receive notifications via email</p>
+                                        </div>
+                                        <div class="preference-control">
+                                            <label class="switch">
+                                                <input type="checkbox" id="email-notifications">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Save Notification Settings</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="profile-card">
+                            <div class="profile-card-header">
+                                <h3>Display Settings</h3>
+                            </div>
+                            <div class="profile-card-content">
+                                <form id="display-form">
+                                    <div class="preference-item">
+                                        <div class="preference-info">
+                                            <h4>Dark Mode</h4>
+                                            <p>Switch between light and dark theme</p>
+                                        </div>
+                                        <div class="preference-control">
+                                            <label class="switch">
+                                                <input type="checkbox" id="dark-mode">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="preference-item">
+                                        <div class="preference-info">
+                                            <h4>Language</h4>
+                                            <p>Select your preferred language</p>
+                                        </div>
+                                        <div class="preference-control">
+                                            <select id="language-preference">
+                                                <option value="en">English</option>
+                                                <option value="es">Spanish</option>
+                                                <option value="fr">French</option>
+                                                <option value="de">German</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Save Display Settings</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="profile-card">
+                            <div class="profile-card-header">
+                                <h3>Privacy Settings</h3>
+                            </div>
+                            <div class="profile-card-content">
+                                <form id="privacy-form">
+                                    <div class="preference-item">
+                                        <div class="preference-info">
+                                            <h4>Data Collection</h4>
+                                            <p>Allow anonymous data collection to improve the app</p>
+                                        </div>
+                                        <div class="preference-control">
+                                            <label class="switch">
+                                                <input type="checkbox" id="data-collection" checked>
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="preference-item">
+                                        <div class="preference-info">
+                                            <h4>Data Export</h4>
+                                            <p>Download all your data</p>
+                                        </div>
+                                        <div class="preference-control">
+                                            <button type="button" class="btn btn-secondary" id="export-data-btn">Export Data</button>
+                                        </div>
+                                    </div>
+                                    <div class="preference-item">
+                                        <div class="preference-info">
+                                            <h4>Delete Account</h4>
+                                            <p>Permanently delete your account and all data</p>
+                                        </div>
+                                        <div class="preference-control">
+                                            <button type="button" class="btn btn-danger" id="delete-account-btn">Delete Account</button>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Save Privacy Settings</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>MindTrack</h2>
+                    <p>Your mental health companion</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="mood-tracker.html">Mood Tracker</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for mental health tips and updates.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 MindTrack. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script src="profile.js"></script>
+</body>
+</html>
+

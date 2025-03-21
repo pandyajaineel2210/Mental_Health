@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - MindTrack</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>MindTrack</h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                    <li><a href="mood-tracker.html">Mood Tracker</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="dashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1>Welcome, <span id="user-name">User</span></h1>
+                <p class="date" id="current-date"></p>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card summary-card">
+                    <h2>Your Wellbeing Summary</h2>
+                    <div class="wellbeing-score">
+                        <div class="score-circle">
+                            <span id="wellbeing-score">75</span>
+                        </div>
+                        <p>Your wellbeing score</p>
+                    </div>
+                    <div class="summary-stats">
+                        <div class="stat">
+                            <p>Mood Trend</p>
+                            <p class="trend positive"><i class="fas fa-arrow-up"></i> Improving</p>
+                        </div>
+                        <div class="stat">
+                            <p>Check-ins</p>
+                            <p class="value">15 days</p>
+                        </div>
+                        <div class="stat">
+                            <p>Journal Entries</p>
+                            <p class="value">8</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card mood-chart-card">
+                    <h2>Mood History</h2>
+                    <div class="chart-container">
+                        <canvas id="moodChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="dashboard-card check-in-card">
+                    <h2>Daily Check-in</h2>
+                    <p>How are you feeling today?</p>
+                    <div class="mood-selector">
+                        <div class="mood-option" data-mood="5">
+                            <div class="mood-emoji">😄</div>
+                            <p>Great</p>
+                        </div>
+                        <div class="mood-option" data-mood="4">
+                            <div class="mood-emoji">🙂</div>
+                            <p>Good</p>
+                        </div>
+                        <div class="mood-option" data-mood="3">
+                            <div class="mood-emoji">😐</div>
+                            <p>Okay</p>
+                        </div>
+                        <div class="mood-option" data-mood="2">
+                            <div class="mood-emoji">🙁</div>
+                            <p>Low</p>
+                        </div>
+                        <div class="mood-option" data-mood="1">
+                            <div class="mood-emoji">😞</div>
+                            <p>Bad</p>
+                        </div>
+                    </div>
+                    <textarea placeholder="Add notes about your day (optional)"></textarea>
+                    <button class="btn btn-primary" id="save-checkin">Save Check-in</button>
+                </div>
+
+                <div class="dashboard-card journal-card">
+                    <h2>Recent Journal Entries</h2>
+                    <div class="journal-entries" id="journal-entries">
+                        <p class="empty-state">No journal entries yet. Start writing in the Mood Tracker section.</p>
+                    </div>
+                    <a href="mood-tracker.html" class="btn btn-secondary">Write New Entry</a>
+                </div>
+
+                <div class="dashboard-card resources-card">
+                    <h2>Recommended Resources</h2>
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <div class="resource-icon"><i class="fas fa-book"></i></div>
+                            <div class="resource-content">
+                                <h3>Mindfulness Techniques</h3>
+                                <p>Simple practices to reduce stress and anxiety</p>
+                                <a href="#" class="resource-link">Read More</a>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <div class="resource-icon"><i class="fas fa-heart"></i></div>
+                            <div class="resource-content">
+                                <h3>Self-Care Guide</h3>
+                                <p>Essential self-care practices for mental wellbeing</p>
+                                <a href="#" class="resource-link">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="resources.html" class="btn btn-secondary">View All Resources</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>MindTrack</h2>
+                    <p>Your mental health companion</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="mood-tracker.html">Mood Tracker</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for mental health tips and updates.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 MindTrack. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Dashboard specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set user name (would normally come from login)
+            document.getElementById('user-name').textContent = localStorage.getItem('userName') || 'User';
+            
+            // Set current date
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('current-date').textContent = now.toLocaleDateString('en-US', options);
+            
+            // Initialize mood chart
+            const ctx = document.getElementById('moodChart').getContext('2d');
+            const moodData = JSON.parse(localStorage.getItem('moodData')) || generateDummyMoodData();
+            
+            const moodChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: moodData.dates,
+                    datasets: [{
+                        label: 'Mood Level',
+                        data: moodData.values,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2,
+                        tension: 0.3,
+                        pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+                        pointRadius: 4
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 5,
+                            ticks: {
+                                stepSize: 1,
+                                callback: function(value) {
+                                    const labels = ['', 'Bad', 'Low', 'Okay', 'Good', 'Great'];
+                                    return labels[value];
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+            
+            // Handle mood selection
+            const moodOptions = document.querySelectorAll('.mood-option');
+            let selectedMood = null;
+            
+            moodOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    moodOptions.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedMood = parseInt(this.dataset.mood);
+                });
+            });
+            
+            // Handle check-in submission
+            document.getElementById('save-checkin').addEventListener('click', function() {
+                if (selectedMood === null) {
+                    alert('Please select a mood before saving your check-in.');
+                    return;
+                }
+                
+                const notes = document.querySelector('.check-in-card textarea').value;
+                const date = new Date().toISOString().split('T')[0];
+                
+                // Save mood data
+                const moodData = JSON.parse(localStorage.getItem('moodData')) || {
+                    dates: [],
+                    values: []
+                };
+                
+                // Check if we already have an entry for today
+                const todayIndex = moodData.dates.indexOf(date);
+                if (todayIndex !== -1) {
+                    moodData.values[todayIndex] = selectedMood;
+                } else {
+                    moodData.dates.push(date);
+                    moodData.values.push(selectedMood);
+                }
+                
+                localStorage.setItem('moodData', JSON.stringify(moodData));
+                
+                // Save journal entry if notes were provided
+                if (notes.trim() !== '') {
+                    const journalEntries = JSON.parse(localStorage.getItem('journalEntries')) || [];
+                    journalEntries.unshift({
+                        date: date,
+                        mood: selectedMood,
+                        notes: notes
+                    });
+                    localStorage.setItem('journalEntries', JSON.stringify(journalEntries));
+                    
+                    // Update journal entries display
+                    updateJournalEntries();
+                }
+                
+                // Update chart
+                moodChart.data.labels = moodData.dates;
+                moodChart.data.datasets[0].data = moodData.values;
+                moodChart.update();
+                
+                // Reset form
+                document.querySelector('.check-in-card textarea').value = '';
+                moodOptions.forEach(opt => opt.classList.remove('selected'));
+                selectedMood = null;
+                
+                alert('Check-in saved successfully!');
+            });
+            
+            // Update journal entries display
+            function updateJournalEntries() {
+                const journalEntries = JSON.parse(localStorage.getItem('journalEntries')) || [];
+                const journalContainer = document.getElementById('journal-entries');
+                
+                if (journalEntries.length === 0) {
+                    journalContainer.innerHTML = '<p class="empty-state">No journal entries yet. Start writing in the Mood Tracker section.</p>';
+                    return;
+                }
+                
+                journalContainer.innerHTML = '';
+                
+                // Display the 3 most recent entries
+                const entriesToShow = journalEntries.slice(0, 3);
+                entriesToShow.forEach(entry => {
+                    const entryDate = new Date(entry.date);
+                    const formattedDate = entryDate.toLocaleDateString('en-US', {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric'
+                    });
+                    
+                    const moodEmojis = ['', '😞', '🙁', '😐', '🙂', '😄'];
+                    
+                    const entryElement = document.createElement('div');
+                    entryElement.className = 'journal-entry';
+                    entryElement.innerHTML = `
+                        <div class="entry-header">
+                            <span class="entry-date">${formattedDate}</span>
+                            <span class="entry-mood">${moodEmojis[entry.mood]}</span>
+                        </div>
+                        <p class="entry-content">${entry.notes}</p>
+                    `;
+                    
+                    journalContainer.appendChild(entryElement);
+                });
+            }
+            
+            // Initialize journal entries
+            updateJournalEntries();
+            
+            // Generate dummy mood data for new users
+            function generateDummyMoodData() {
+                const dates = [];
+                const values = [];
+                const today = new Date();
+                
+                for (let i = 14; i >= 0; i--) {
+                    const date = new Date(today);
+                    date.setDate(today.getDate() - i);
+                    dates.push(date.toISOString().split('T')[0]);
+                    
+                    // Generate random mood values between 2 and 5
+                    const randomMood = Math.floor(Math.random() * 4) + 2;
+                    values.push(randomMood);
+                }
+                
+                return { dates, values };
+            }
+        });
+    </script>
+</body>
+</html>
+
